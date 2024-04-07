@@ -17,7 +17,7 @@ model.to(device)
 
 optimizer = torch.optim.AdamW(model.parameters(), lr=5e-5)
 dataset_train = TensorDataset(X_train_tokenized.input_ids, X_train_tokenized.attention_mask, Y_train_tensor.float())
-train_dataloader = DataLoader(dataset_train, batch_size=8, shuffle=True)
+train_dataloader = DataLoader(dataset_train, batch_size = 2, shuffle=True)
 
 print("Done loading model")
 num_epochs = 1
@@ -33,6 +33,7 @@ for epoch in range(num_epochs):
         total_loss += loss.item()
         loss.backward()
         optimizer.step()
+        break
     avg_train_loss = total_loss / len(train_dataloader)
     print(f'Epoch {epoch + 1}/{num_epochs}, Average Training Loss: {avg_train_loss:.4f}')
 
