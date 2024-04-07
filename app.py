@@ -91,5 +91,5 @@ def main():
             st.write(f"- {lookup_table[i]}: {'yes' if prediction == 0 else 'no'}")
 
 # Run the app
-if __name__ == '_main_':
+if __name__ == '__main__':
     main()
